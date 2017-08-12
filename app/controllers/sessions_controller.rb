@@ -1,24 +1,16 @@
 class SessionsController < ApplicationController
   
-  def index
-  end
-  
-  def show
-  end
-
-  def edit
-  end
-  
   def new
+    render :"sessions#new"
   end
   
   def create
-  end
-  
-  def update
+    # add logic here to log a user in
   end
   
   def destroy
+    session.delete([:user_id])
+    redirect_to :"sessions#new"
   end
   
 end

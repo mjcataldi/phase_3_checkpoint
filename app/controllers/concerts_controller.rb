@@ -1,5 +1,4 @@
-class C
-  oncertsController < ApplicationController
+class ConcertsController < ApplicationController
   def index
   end
   
