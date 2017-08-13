@@ -1,1 +1,13 @@
-<h1>Concert Show</h1>
+<h2><%= @concert.band %> Concert</h2>
+<table>
+  <tr><td>Venue</td><td><%= @concert.venue %></td></tr>
+  <tr><td>Date</td><td><%= @concert.date %></td></tr>
+  <tr><td>Start Time</td><td><%= @concert.start_time.strftime("%A, %b %e, %Y at %l %p") %></td></tr>
+</table>
+
+<br />
+<%= link_to "Concert Listings", concerts_path %>
+
+<% if logged_in? %>
+  <p>Logged in</p>
+<% end %>
