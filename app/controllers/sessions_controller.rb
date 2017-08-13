@@ -20,7 +20,8 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    session.delete([:user_id])
+    session[:user_id] = nil
+    p "MADE IT TO DELETE THE SESSION"
     redirect_to new_session_path
   end
   
