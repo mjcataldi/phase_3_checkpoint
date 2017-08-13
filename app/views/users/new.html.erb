@@ -1,1 +1,32 @@
 <h1>Register</h1>
+
+<%= form_for(:user, url: new_user_url) do |f| %>
+  <p>
+  <%= f.label :first_name %>
+  <%= f.email_field :first_name%>
+  </p>
+  
+  <p>
+  <%= f.label :last_name %>
+  <%= f.email_field :last_name%>
+  </p>
+  
+  <p>
+  <%= f.label :email %>
+  <%= f.email_field :email%>
+  </p>
+  
+  <p>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  </p>
+  
+  <p>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+  </p>
+  
+  <%= f.submit "Register" %>
+<% end %>
+
+<p><%= link_to "Login", new_session_path %></p>
