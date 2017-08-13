@@ -2,7 +2,7 @@ class ConcertsController < ApplicationController
   before_action :set_concert, only: [:show, :edit, :update, :destroy]
   
   def index
-    @concerts = Concert.all.order(:created_at)
+    @concerts = Concert.all.where("date >= ?", Date.today).order(:date)
   end
   
   def show

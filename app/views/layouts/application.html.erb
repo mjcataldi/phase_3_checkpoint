@@ -10,8 +10,9 @@
 
   <body>
     <main>
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/errors', object: @errors %>
       <h1>Concerts Website</h1>
-      <!--render partial here-->
       <%= yield %>
     </main>
   </body>

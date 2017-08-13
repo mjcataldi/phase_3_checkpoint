@@ -1,10 +1,10 @@
-<h1>Concerts Index</h1>
+<h1>Upcoming Concerts</h1>
 
 <% @concerts.each do |concert| %>
   <p>
     <%= link_to concert.band, concert_path(concert) %> | 
     <%= concert.venue %> | 
     <%= concert.date %> | 
-    <%= concert.start_time.strftime("%c") %>
+    <%= concert.start_time.strftime("%l:%M%p") %>
   </p>
 <% end %>

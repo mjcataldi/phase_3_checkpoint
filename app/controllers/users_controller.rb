@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  
   
   def index
+    @user = User.all.order(:last_name)
   end
   
   def show
@@ -13,13 +16,36 @@ class UsersController < ApplicationController
   end
   
   def create
+    @user = User.new(user_params)
+    
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to user_path @user
+    else
+      # how to display errors in partial on home page???
+      p @user.errors
+    end
+    
   end
-  
-  def update
+
+  private
+
+  def update    
+    user = User.find(params[:id])
+    user.update!(user_params)
+    redirect_to user
   end
   
   def destroy
   end
   
+  private
+  def set_user 
+    @user = User.find(params[:id])
+  end  
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+  end
   
 end
