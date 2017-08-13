@@ -6,8 +6,15 @@
 </table>
 
 <br />
+<small class="attendees"><%= @concert.attendees_list(current_user) %></small>
+
+<br />
 <%= link_to "Concert Listings", concerts_path %>
 
 <% if logged_in? %>
-  <p>Logged in</p>
+  <% if !@concert.attendees.include? current_user %>
+    <%= form_for [@concert, @attendance], method: :post do |f| %>
+      <%= f.submit value: "Attend Concert" %>
+    <% end %>
+  <% end %>
 <% end %>
