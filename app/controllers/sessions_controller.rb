@@ -10,19 +10,21 @@ class SessionsController < ApplicationController
     if @user
       session[:user_id] = @user.id
       redirect_to user_path @user
-      p "MADE IT"
     else
-      @errors = ["Could not find this user.  Maybe you need to register?"]
-      redirect_to new_session_path
-      p "NOPE"
+      @errors = ["Could not find this user or password is incorrect.  Please try again."]
+      render "new"
     end
     
   end
   
   def destroy
     session[:user_id] = nil
-    p "MADE IT TO DELETE THE SESSION"
     redirect_to new_session_path
   end
+  
+  # private
+  # def user_params
+  #   params.require(:user).permit(:first_name, :last_name, :email, :password)
+  # end
   
 end

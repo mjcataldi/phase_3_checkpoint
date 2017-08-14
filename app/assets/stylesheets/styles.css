@@ -1,13 +1,23 @@
-main {
+body {
+  background-color: gray;
+}
+
+.container {
   font-family: Georgia, sans-serif;
   width: 920px;
-  padding: 10px;
-  border-radius 10px;
+  padding: 25px;
+  border-radius 15px;
   box-sizing: border-box;
   margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 nav ul, nav li {
   list-style-type: none;
   display: inline-block;
+}
+
+ul.errors li {
+  color: red;
+  list-style-type: none;
 }

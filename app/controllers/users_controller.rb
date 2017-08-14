@@ -22,8 +22,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path @user
     else
-      # how to display errors in partial on home page???
-      p @user.errors
+      @errors = @user.errors
+      render :new
     end
     
   end
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   end  
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :email, :password)
   end
   
 end

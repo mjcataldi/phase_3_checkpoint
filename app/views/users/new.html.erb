@@ -1,33 +1,14 @@
 <h1>Register</h1>
 
-<!--FIX THIS-->
-<%= form_for :user, url: url_for(controller: 'users', action: 'create') do |f| %>
-  <p>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name%>
-  </p>
-  
-  <p>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name%>
-  </p>
-  
-  <p>
-  <%= f.label :email %>
-  <%= f.email_field :email%>
-  </p>
-  
-  <p>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  </p>
-  
-  <p>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  </p>
-  
-  <%= f.submit "Register" %>
-<% end %>
+<div>
+  <%= form_for :user, url: url_for(controller: 'users', action: 'create') do |f| %>
+    <p><%= f.text_field :first_name, placeholder: "First Name" %></p>
+    <p><%= f.text_field :last_name, placeholder: "Last Name" %></p>
+    <p><%= f.email_field :email, placeholder: "Email" %></p>
+    <p><%= f.password_field :password, placeholder: "Password" %></p>
+    <p><%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %></p>
+    <%= f.submit "Register" %>
+  <% end %>
+</div>
 
 <p><%= link_to "Login", new_session_path %></p>

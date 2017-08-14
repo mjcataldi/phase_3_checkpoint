@@ -1,10 +1,10 @@
-<h1>Upcoming Concerts</h1>
+<h2>Upcoming Concerts</h2>
 
 <% @concerts.each do |concert| %>
   <p>
     <%= link_to concert.band, concert_path(concert) %> | 
-    <%= concert.venue %> | 
-    <%= concert.date %> | 
-    <%= concert.start_time.strftime("%l:%M%p") %>
+    <%= concert.start_time.strftime("%A, %b %e, %Y at %l %p") %><br />
+    <small><%= concert.attendees_list(current_user).html_safe %></small>
+    
   </p>
 <% end %>
