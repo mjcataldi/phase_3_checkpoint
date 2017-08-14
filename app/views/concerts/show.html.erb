@@ -13,8 +13,11 @@
 
 <% if logged_in? %>
   <% if !@concert.attendees.include? current_user %>
-    <%= form_for [@concert, @attendance], method: :post do |f| %>
+
+    <!-- @attendance.concert, method: :post -->
+    <%= form_for @concert do |f| %>
       <%= f.submit value: "Attend Concert" %>
     <% end %>
+
   <% end %>
 <% end %>
